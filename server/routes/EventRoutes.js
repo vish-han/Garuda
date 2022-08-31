@@ -1,0 +1,20 @@
+const express = require("express");
+
+const router = express.Router();
+
+// controllers
+const {
+  createEvent,
+  getAllEvents,
+  getSuggestedEvents,
+  getEventInfo,
+  updateInfo,
+} = require("../controllers/EventController");
+
+router.post('/create', createEvent);
+router.get('/', getAllEvents);
+router.post('/suggest', getSuggestedEvents);
+router.post('/info/:id', getEventInfo);
+router.post('/update', updateInfo);
+
+module.exports = router;

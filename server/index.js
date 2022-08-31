@@ -4,22 +4,14 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const app = express();
-const mongoose = require('mongoose');
 const PORT=8000;
-app.get("/",(req, res) => {
-    res.send("hello world!");
-})
 
 mongoose.connect("mongodb+srv://vishaldev09:vishal1234@cluster0.npdpway.mongodb.net/?retryWrites=true&w=majority")
 .then(console.log('Connected to MongoDB Successfully'))
 .catch(console.error)
 
-app.listen(PORT,()=>{
-    console.log(`listening on port${PORT}`);
-}); 
-
-
 // routes here
+const EventRoute = require("./routes/EventRoutes");
 
 // middlewares
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -29,8 +21,12 @@ app.use(express.json());
 app.use(cors());
 
 
+app.use("/event", EventRoute);
+
 app.get("*", (req, res) => {
   res.status(404).send("PAGE NOT FOUND");
 });
 
-
+app.listen(PORT,()=>{
+  console.log(`listening on port ${PORT}`);
+}); 
