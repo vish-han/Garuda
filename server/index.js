@@ -13,4 +13,4 @@ mongoose.connect("mongodb+srv://vishaldev09:vishal1234@cluster0.npdpway.mongodb.
 
 app.listen(PORT,()=>{
     console.log(`listening on port${PORT}`);
-});
+}); 
