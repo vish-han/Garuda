@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 // routes here
+const EventRoute = require("./routes/EventRoutes");
 
 // middlewares
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -24,6 +25,8 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+app.use("/event", EventRoute);
 
 app.get("*", (req, res) => {
   res.status(404).send("PAGE NOT FOUND");
