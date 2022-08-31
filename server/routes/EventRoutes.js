@@ -14,7 +14,7 @@ const {
 router.post('/create', createEvent);
 router.get('/', getAllEvents);
 router.post('/suggest', getSuggestedEvents);
-router.post('/info/:id', getEventInfo);
+router.get('/info/:id', getEventInfo);
 router.post('/update', updateInfo);
 
 module.exports = router;

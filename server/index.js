@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT=8000;
 
-mongoose.connect("mongodb+srv://vishaldev09:vishal1234@cluster0.npdpway.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://Vasudevrani:mongoAtlasByVasu@cluster0.pxefb1c.mongodb.net/?retryWrites=true&w=majority")
 .then(console.log('Connected to MongoDB Successfully'))
 .catch(console.error)
 

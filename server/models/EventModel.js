@@ -16,7 +16,7 @@ const EventSchema = mongoose.Schema({
     trim: true,
   },
   mode: String,
-  poster: String,
+  poster_path: String,
   location: String,
   content: {
     type: String,
@@ -31,12 +31,7 @@ const EventSchema = mongoose.Schema({
   socials: [String],
   hostedBy: String,
   heldOn: String,
-  sponsors: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Sponsor",
-    },
-  ],
+  sponsors: [String],
 });
 
 const Event = mongoose.model("Event", EventSchema);
