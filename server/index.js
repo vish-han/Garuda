@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 
+
 const PORT=8000;
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -14,9 +15,13 @@ app.use(cors());
 const UserRoute = require("./Routes/UserRoutes.js");
 app.use('/',UserRoute);
 
-mongoose.connect("mongodb+srv://vishaldev09:vishal1234@cluster0.npdpway.mongodb.net/?retryWrites=true&w=majority")
+const PORT=8000;
+
+
+mongoose.connect("mongodb+srv://Vasudevrani:mongoAtlasByVasu@cluster0.pxefb1c.mongodb.net/?retryWrites=true&w=majority")
 .then(console.log('Connected to MongoDB Successfully'))
 .catch(console.error)
+
 
 app.get("/",(req, res) => {
   res.send("hello world!");
@@ -26,13 +31,19 @@ app.listen(PORT,()=>{
 }); 
 
 
-// routes here
+
+
+const EventRoute = require("./routes/EventRoutes");
 
 // middlewares
 
+
+app.use("/event", EventRoute);
 
 app.get("*", (req, res) => {
   res.status(404).send("PAGE NOT FOUND");
 });
 
-
+app.listen(PORT,()=>{
+  console.log(`listening on port ${PORT}`);
+}); 
