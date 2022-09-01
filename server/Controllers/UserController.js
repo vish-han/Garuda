@@ -1,3 +1,25 @@
+
+const User = require('../Models/Users.js')
+const bcrypt=require('bcryptjs')
+const { validationResult } = require('express-validator');
+const RegisterUser=async(req,res) => {
+try {
+ 
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    let user = await User.create({
+        name: req.body.name,
+        password:bcrypt.hashSync(req.body.password, 8),
+        email: req.body.email,
+        college: req.body.college,
+        isStudent:req.body.isStudent,
+    })
+    res.json(user)
+   
+} catch (error) {
+
 const User = require("../Models/Users.js");
 const bcrypt = require("bcryptjs");
 
@@ -13,6 +35,7 @@ const RegisterUser = async (req, res) => {
     res.json(user);
     console.log(req.body.name);
   } catch (error) {
+
     res.status(404).json(error);
   }
 };
