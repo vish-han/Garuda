@@ -1,5 +1,5 @@
-const mongoose=require('mongoose');
-const{Schema} = mongoose
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
     name:{type:"string",require:true},
@@ -10,6 +10,8 @@ const UserSchema = new Schema({
     isStudent:{type:"boolean",required:true,default:true},
     isOraganizer:{type:"boolean",required:false,default:false},
 
-})
+});
+
+
 const User = mongoose.model("User", UserSchema);
-module.exports = User;  
+module.exports = User;

@@ -1,3 +1,4 @@
+
 const express =require('express');
 const { body } = require('express-validator');
 const {RegisterUser,loginUser,getUserbyId,updateUser,deleteUser} = require('../Controllers/UserController.js')
@@ -10,4 +11,7 @@ Router.post('/login',loginUser)
 Router.put('/:id',updateUser)
 Router.delete('/:id',deleteUser)
 
-module.exports =Router; 
+
+
+
+module.exports = Router;
