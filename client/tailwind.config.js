@@ -14,7 +14,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         '15': 'repeat(auto-fit, minmax(230px, 1fr))'
-      }
+      },
     },
     screens: {
       xs: "480px",

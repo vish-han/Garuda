@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Organizer from "./pages/Organizer";
 import styles from "./style";
 import { Navbar } from "./components";
+import OrgDetails from "./pages/OrgDetails";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="org" element={<Organizer />} />
+        <Route path='/org/:id' element={<OrgDetails/>}/>
       </Routes>
     </div>
   );

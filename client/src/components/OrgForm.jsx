@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 import { useState } from "react";
+import { FaImage } from "react-icons/fa";
 
 export default function OrgForm({ addOrg }) {
   const [orgData, setOrgData] = useState({
@@ -10,6 +11,7 @@ export default function OrgForm({ addOrg }) {
     password: "",
     location: "",
     image: "",
+    bio: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -52,7 +54,7 @@ export default function OrgForm({ addOrg }) {
           name="name"
           value={orgData.name}
           onChange={handleChange}
-          className="p-3 border outline-none rounded-2xl text-lg"
+          className="p-2 border outline-none rounded-2xl text-lg"
         />
         <input
           type="text"
@@ -60,7 +62,7 @@ export default function OrgForm({ addOrg }) {
           name="college"
           value={orgData.college}
           onChange={handleChange}
-          className="p-3 border outline-none rounded-2xl text-lg"
+          className="p-2 border outline-none rounded-2xl text-lg"
         />
         <input
           type="email"
@@ -68,15 +70,7 @@ export default function OrgForm({ addOrg }) {
           name="email"
           value={orgData.email}
           onChange={handleChange}
-          className="p-3 border outline-none rounded-2xl text-lg"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={orgData.password}
-          onChange={handleChange}
-          className="p-3 border outline-none rounded-2xl text-lg"
+          className="p-2 border outline-none rounded-2xl text-lg"
         />
         <input
           type="text"
@@ -84,15 +78,30 @@ export default function OrgForm({ addOrg }) {
           name="location"
           value={orgData.location}
           onChange={handleChange}
-          className="p-3 border outline-none rounded-2xl text-lg"
+          className="p-2 border outline-none rounded-2xl text-lg"
         />
+        <textarea
+          cols="30"
+          rows="5"
+          name="bio"
+          placeholder="About organization"
+          className="p-2 border outline-none rounded-2xl text-lg"
+          value={orgData.bio}
+          onChange={handleChange}
+        ></textarea>
+        <label
+          htmlFor="imageFile"
+          className="text-white text-xl flex gap-2 items-center"
+        >
+          <FaImage /> Add an image :{" "}
+        </label>
         <input
           type="file"
           accept="image/*"
           onChange={(e) => addImage(e.target.files[0])}
           className="text-white"
         />
-        <Button variant="contained">{loading ? 'loading...' : 'Create'}</Button>
+        <Button variant="contained">{loading ? "loading..." : "Create"}</Button>
       </div>
     </form>
   );
