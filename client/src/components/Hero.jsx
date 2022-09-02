@@ -1,6 +1,7 @@
 import styles from "../style";
 import GetStarted from "./GetStarted";
 import { discount } from "../assets";
+import img from "../assets/img2.png";
 
 const Hero = () => (
   //dynamic classname
@@ -38,7 +39,7 @@ const Hero = () => (
       </p>
     </div>
     <div>
-      <img src={"img2.png"} alt="explore" className="invert " />
+      <img src={img} alt="explore" className="invert " />
     </div>
   </section>
 );
