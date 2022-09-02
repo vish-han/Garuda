@@ -1,7 +1,9 @@
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import Organizer from "./pages/Organizer";
+import SignUp from "./pages/SignUp";
 import styles from "./style";
+import Login from "./pages/Login";
 import { Navbar } from "./components";
 
 const App = () => {
@@ -16,6 +18,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="org" element={<Organizer />} />
+<Route path="signUp" element={<SignUp />} />
+<Route path="login" element={<Login />} />
       </Routes>
     </div>
   );
