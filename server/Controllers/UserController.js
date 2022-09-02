@@ -54,26 +54,31 @@ const updateUser = async (req, res) => {
   try {
     const id = req.params.id;
     const updatedUser = req.body;
-    const user = await User.findByIdAndUpdate(id, updatedUser, { new: true });
-    res.json(user);
-  } catch (error) {
-    res.status(400).json({ error: error });
-  }
-};
-const deleteUser = async (req, res) => {
-  try {
-    const id = req.params.id;
-    const data = await User.findByIdAndDelete(id);
-    res.send(`Document with ${data.name} has been deleted..`);
-  } catch (error) {
-    res.status(401).json({ error: error });
-  }
-};
 
-module.exports = {
-  RegisterUser,
-  loginUser,
-  getUserbyId,
-  updateUser,
-  deleteUser,
-};
+    const user = await User.findByIdAndUpdate(id, updatedUser, {new:true});
+    res.json(user)
+} catch (error) {
+    res.status(400).json({ error: error})
+}
+}
+const deleteUser = async(req, res) => {
+    
+    try {
+        const id=req.params.id;
+        const data = await User.findByIdAndDelete(id)
+        res.send(`Document with ${data.name} has been deleted..`)
+    } catch (error) {
+        res.status(401).json({error:error})
+    }
+
+}
+const getAllUser=async (req, res) => {
+    try {
+        const users=await User.find();
+        res.json(users)
+    } catch (error) {
+        res.status(401).json({error:error})
+    }
+    
+}
+module.exports ={RegisterUser,loginUser,getUserbyId,updateUser,deleteUser,getAllUser}
