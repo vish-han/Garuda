@@ -8,11 +8,11 @@ export const navLinks = [
     title: "Events",
   },
   {
-    id: "/collab",
-    title: "Collab",
-  },
-  {
     id: "/org",
     title: "Organisations",
+  },
+  {
+    id: "/login",
+    title: "Login",
   },
 ];
