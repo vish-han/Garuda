@@ -2,16 +2,26 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import styles from "../style";
 import orgList from "../constants/orgList";
-import { IconButton } from "@mui/material";
+import { Drawer, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import OrgForm from "../components/OrgForm";
 
 export default function Organizer() {
   const search = useRef(null);
 
   const [query, setQuery] = useState("");
+  const [location, setLocation] = useState("");
+  const [bottom, setBottom] = useState(false);
+
+  const toggleDrawer = () => {
+      setBottom(!bottom);
+  };
+
+  const handleChange = (event) => {
+    setLocation(event.target.value);
+  };
 
   const handleKeyPress = (e) => {
     e.preventDefault();
@@ -25,7 +35,9 @@ export default function Organizer() {
     setQuery("");
   };
 
-  const handleClick = () => {};
+  const addOrg = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div className={`org p-4 md:px-10 ${styles.boxWidth} mx-auto `}>
@@ -47,12 +59,15 @@ export default function Organizer() {
             <SearchIcon sx={{ color: "white" }} />
           </IconButton>
         </div>
-        <div className="sortButtons">
+        <div className="sortButtons flex xs:flex-row flex-col">
           <ButtonGroup variant="contained" aria-label="outlined button group">
             <Button>A-Z</Button>
             <Button>Z-A</Button>
             <Button>Latest</Button>
             <Button>Oldest</Button>
+          </ButtonGroup>
+          <ButtonGroup variant="contained" aria-label="outlined button group">
+            <Button color="secondary" onClick={toggleDrawer}>Create New</Button>
           </ButtonGroup>
         </div>
       </div>
@@ -66,6 +81,14 @@ export default function Organizer() {
           </div>
         ))}
       </div>
+      {/* org form */}
+      <Drawer
+        anchor={'bottom'}
+        open={bottom}
+        onClose={toggleDrawer}
+      >
+        <OrgForm addOrg={addOrg}/>
+      </Drawer>
     </div>
   );
 }
