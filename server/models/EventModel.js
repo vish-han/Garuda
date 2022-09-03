@@ -5,7 +5,7 @@ const EventSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  organiser: {
+  organizer: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Orgainser",
     require: true,
