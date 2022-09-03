@@ -92,7 +92,7 @@ export default function Organizer() {
         open={bottom}
         onClose={toggleDrawer}
       >
-        <OrgForm addOrg={addOrg}/>
+        <OrgForm addOrg={addOrg} toggleDrawer={toggleDrawer}/>
       </Drawer>
     </div>
   );

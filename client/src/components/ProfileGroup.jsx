@@ -1,11 +1,15 @@
 import React from "react";
 import { BsBox } from "react-icons/bs";
+import {Button} from '@mui/material'
 
-export default function ProfileGroup({ data, title }) {
+export default function ProfileGroup({ data, title, toggleDrawer }) {
   return (
     <div>
-      <div className="text-2xl text-white flex flex-row gap-5 items-center font-bold font-poppins uppercase">
-        <BsBox /> <span>{title}</span>
+      <div className="text-xl sm:text-2xl text-white flex flex-row items-center justify-between font-bold font-poppins uppercase">
+        <div className="flex flex-row gap-2 items-center">
+          <BsBox /> <span>{title}</span>
+        </div>
+        <Button variant="contained" onClick={toggleDrawer}>Add New</Button>
       </div>
       {data ? (
         <div className="flex flex-row overflow-scroll gap-5 my-5">

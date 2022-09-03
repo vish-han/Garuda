@@ -2,6 +2,8 @@ const orgList = [
   {
     name: "nsut team",
     id: "1",
+    college: 'nsut',
+    location: 'delhi',
     image:
       "https://img.lovepik.com/free-png/20210918/lovepik-rocket-png-image_400255895_wh1200.png",
     college: "nsut",

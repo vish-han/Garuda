@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
 import React from "react";
 import { useState } from "react";
-import { FaImage } from "react-icons/fa";
+import { FaImage, FaArrowLeft } from "react-icons/fa";
 
-export default function OrgForm({ addOrg }) {
+export default function OrgForm({ addOrg, toggleDrawer }) {
   const [orgData, setOrgData] = useState({
     name: "",
     college: "",
@@ -101,7 +101,10 @@ export default function OrgForm({ addOrg }) {
           onChange={(e) => addImage(e.target.files[0])}
           className="text-white"
         />
-        <Button variant="contained">{loading ? "loading..." : "Create"}</Button>
+          <Button variant='contained'>
+            {loading ? "loading..." : "Create"}
+          </Button>
+          <Button variant='contained' onClick={toggleDrawer}>Back</Button>
       </div>
     </form>
   );
