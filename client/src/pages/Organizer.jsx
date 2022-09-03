@@ -7,6 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import OrgForm from "../components/OrgForm";
+import { Link } from "react-router-dom";
 
 export default function Organizer() {
   const search = useRef(null);
@@ -74,9 +75,13 @@ export default function Organizer() {
       {/* list */}
       <div className="list grid grid-cols-15 gap-7 my-10 items-center justify-center">
         {orgList.map((org) => (
-          <div className="grid grid-cols-1 rounded-3xl border border-gradient p-2 text-center hover:scale-105 duration-300">
+          <div key={org.id} className="grid grid-cols-1 rounded-3xl border border-gradient p-2 text-center hover:scale-105 duration-300">
+            <Link to={`/org/${org.id}`}>
             <img src={org.image} alt="image" className="rounded-3xl " />
+            </Link>
+            <Link to={`/org/${org.id}`}>
             <h1 className="text-white text-xl md:text-2xl mt-3">{org.name}</h1>
+            </Link>
             <p className="text-white">{org.college}</p>
           </div>
         ))}
@@ -87,7 +92,7 @@ export default function Organizer() {
         open={bottom}
         onClose={toggleDrawer}
       >
-        <OrgForm addOrg={addOrg}/>
+        <OrgForm addOrg={addOrg} toggleDrawer={toggleDrawer}/>
       </Drawer>
     </div>
   );
