@@ -5,6 +5,8 @@ import SignUp from "./pages/SignUp";
 import styles from "./style";
 import Login from "./pages/Login";
 import { Navbar } from "./components";
+import OrgDetails from "./pages/OrgDetails";
+import Event from "./pages/Event";
 
 const App = () => {
   return (
@@ -18,8 +20,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="org" element={<Organizer />} />
-<Route path="signUp" element={<SignUp />} />
-<Route path="login" element={<Login />} />
+        <Route path="/org/:id" element={<OrgDetails />} />
+        <Route path="signUp" element={<SignUp />} />
+        <Route path="login" element={<Login />} />
+        <Route path='events' element={<Event/>}/>
       </Routes>
     </div>
   );

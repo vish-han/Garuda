@@ -13,8 +13,9 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
       },
       gridTemplateColumns: {
-        '15': 'repeat(auto-fit, minmax(230px, 1fr))'
-      }
+        '15': 'repeat(auto-fit, minmax(230px, 1fr))',
+        '16': 'repeat(auto-fit, minmax(320px, 1fr))'
+      },
     },
     screens: {
       xs: "480px",
