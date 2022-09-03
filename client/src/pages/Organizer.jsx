@@ -14,7 +14,7 @@ export default function Organizer() {
 
   const [query, setQuery] = useState("");
   const [location, setLocation] = useState("");
-  const [bottom, setBottom] = useState(false);
+  const [bottom,  setBottom] = useState(false);
 
   const toggleDrawer = () => {
       setBottom(!bottom);
